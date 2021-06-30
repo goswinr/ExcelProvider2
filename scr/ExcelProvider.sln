@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "ExcelProvider.DesignTime", "ExcelProvider.DesignTime.fsproj", "{FDDDC541-CB2A-44B3-B1B7-4810572F32F9}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "ExcelProvider.Runtime", "ExcelProvider.Runtime.fsproj", "{22A7ABB6-E330-4357-98FE-5F8AD078BD9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDDDC541-CB2A-44B3-B1B7-4810572F32F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDDDC541-CB2A-44B3-B1B7-4810572F32F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDDDC541-CB2A-44B3-B1B7-4810572F32F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDDDC541-CB2A-44B3-B1B7-4810572F32F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A7ABB6-E330-4357-98FE-5F8AD078BD9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A7ABB6-E330-4357-98FE-5F8AD078BD9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A7ABB6-E330-4357-98FE-5F8AD078BD9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A7ABB6-E330-4357-98FE-5F8AD078BD9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E688C3F2-312C-4042-BE96-D06C9C4744C0}
+	EndGlobalSection
+EndGlobal
