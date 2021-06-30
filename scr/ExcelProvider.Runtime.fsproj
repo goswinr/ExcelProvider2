@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net4.8</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>    <!--to only have the english resources of Fsharp.Core-->
+  </PropertyGroup>
+
+ <ItemGroup>
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />    
+  </ItemGroup>
+
+  <ItemGroup>    
+    <Compile Include="ProvidedTypes.fsi"/>    
+    <Compile Include="ProvidedTypes.fs"/>
+    <Compile Include="Runtime.fs" />    
+  </ItemGroup>
+
+</Project>
+
+
+
+
+
+
