@@ -254,11 +254,14 @@ type public ExcelProvider(cfg:TypeProviderConfig) as this =
            <param name='HasHeaders'>Whether the range contains the names of the columns as its first line.</param>
            <param name='ForceString'>Specifies forcing data to be processed as strings. Defaults to `false`.</param>"""
 
-    do excelFileProvidedType.AddXmlDoc helpText
-    do excelFileProvidedType.DefineStaticParameters(parameters, buildTypes)
+    do 
+        excelFileProvidedType.AddXmlDoc helpText
+        excelFileProvidedType.DefineStaticParameters(parameters, buildTypes)
 
-    // add the type to the namespace
-    do this.AddNamespace(rootNamespace,[excelFileProvidedType])
+        // add the type to the namespace
+        this.AddNamespace(rootNamespace,[excelFileProvidedType])
 
 [<TypeProviderAssembly>]
-do ()
+do 
+    
+    ()
