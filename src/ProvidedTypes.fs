@@ -1,13 +1,9 @@
-
 // this file is copied from https://github.com/fsprojects/FSharp.TypeProviders.SDK/tree/master/src
-// on 2021-06-30
-
-#nowarn "3390" // XML docstring is incomplete
-//#nowarn "3218" //The argument names in the signature  and implementation  do not match.
+// on 2021-07-13
 
 
-
-// Copyright (c) Microsoft Corporation, Tomas Petricek, Gustavo Guerra, and other contributors// 
+// Copyright (c) Microsoft Corporation, Tomas Petricek, Gustavo Guerra, and other contributors
+// 
 // Licensed under the MIT License see LICENSE.md in this project
 
 namespace ProviderImplementation.ProvidedTypes
@@ -8352,7 +8348,7 @@ namespace ProviderImplementation.ProvidedTypes
             if genericArguments.Length = 0 then genericMethodDefinition else
             MethodSymbol2(genericMethodDefinition, Array.ofList genericArguments, ProvidedTypeBuilder.typeBuilder) :> MethodInfo
 
-        static member MakeTupleType(args, isStruct) =
+        static member MakeTupleType(types, isStruct) =
             let rec mkTupleType isStruct (asm:Assembly) (tys:Type list) =
                 let maxTuple = 8
 
@@ -8366,9 +8362,9 @@ namespace ProviderImplementation.ProvidedTypes
                     ProvidedTypeBuilder.MakeGenericType(ty, List.append  tysA [ tyB ])
                 else
                     ProvidedTypeBuilder.MakeGenericType(ty, tys)
-            mkTupleType isStruct (typeof<System.Tuple>.Assembly) args
+            mkTupleType isStruct (typeof<System.Tuple>.Assembly) types
 
-        static member MakeTupleType(args) = ProvidedTypeBuilder.MakeTupleType(args, false)
+        static member MakeTupleType(types) = ProvidedTypeBuilder.MakeTupleType(types, false)
 
         static member typeBuilder = 
             { new ITypeBuilder with
@@ -14024,6 +14020,8 @@ namespace ProviderImplementation.ProvidedTypes
                     Some()
                 | _ -> None)
             
+        let (|TypeOf|_|) = (|SpecificCall|_|) <@ typeof<obj> @>
+
         let (|LessThan|_|) = (|SpecificCall|_|) <@ (<) @>
         let (|GreaterThan|_|) = (|SpecificCall|_|) <@ (>) @>
         let (|LessThanOrEqual|_|) = (|SpecificCall|_|) <@ (<=) @>
@@ -14295,7 +14293,9 @@ namespace ProviderImplementation.ProvidedTypes
                     ilg.Emit(I_castclass (transType  targetTy))
 
                 popIfEmptyExpected expectedState
-                
+               
+            | TypeOf(None, [t1], []) -> emitExpr expectedState (Expr.Value(t1)) 
+
             | NaN -> emitExpr ExpectedStackState.Value <@@ Double.NaN @@>
 
             | NaNSingle -> emitExpr ExpectedStackState.Value <@@ Single.NaN @@>

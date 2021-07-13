@@ -9,14 +9,14 @@
 
  <ItemGroup>
     <PackageReference Include="ExcelDataReader" Version="3.6.0" />
-    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />    
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" /> 
   </ItemGroup>
 
   <ItemGroup>   
-    <Compile Include="ProvidedTypes.fsi"/>    
-    <Compile Include="ProvidedTypes.fs"/>
+    <Compile Include="ProvidedTypes.fsi" />    
+    <Compile Include="ProvidedTypes.fs" />
     <Compile Include="Runtime.fs" />
-    <Compile Include="DesignTime.fs" />   
+    <Compile Include="DesignTime.fs" />  
   </ItemGroup>
 
 </Project>
