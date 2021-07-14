@@ -1,6 +1,7 @@
 module FSharp.Interop.Excel.ExcelProvider.ProviderImplementation
 
 open System
+open System.Text
 open System.Collections.Generic
 open System.IO
 
@@ -260,6 +261,10 @@ type public ExcelProvider(cfg:TypeProviderConfig) as this =
 
         // add the type to the namespace
         this.AddNamespace(rootNamespace,[excelFileProvidedType])
+
+        //let enc1252 = Encoding.GetEncoding(1252)
+        //Text.Encoding.RegisterProvider( Text.CodePagesEncodingProvider.Instance)
+        //Text.Encoding.RegisterProvider( enc1252)
 
 [<TypeProviderAssembly>]
 do 
